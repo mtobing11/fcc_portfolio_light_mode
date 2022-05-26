@@ -1,3 +1,6 @@
+// import media ini harus ada di paling bawah, kalau gak media ini akan ditimpa oleh class-class berikutnya
+//@import './_media';
+
 * {
     margin: 0;
     padding: 0;
@@ -17,6 +20,19 @@
     --transition-setting: all .4s ease-in-out;
     --box-shadow-1: 0 3px 15px rgba(0, 0, 0, .3);
     --br-sm-2: 14px;
+}
+
+// light mode color
+.light-mode{
+    --color-primary: #FFFFFF;
+    --color-secondary: #F56692;
+    --color-white: #454e56;
+    --color-black: #000;
+    --color-grey0: #f8f8f8;
+    --color-grey-1: #6c7983;
+    --color-grey-2: #6c7983;
+    --color-grey-4: #454e56;
+    --color-grey-5: #f8f8f8;
 }
 
 body {
@@ -673,10 +689,11 @@ header{
     display: flex;
     align-self: flex-start; // secara default align-self adalah stretch
 }
+
 .main-btn {
     border-radius: 30px;
     color: inherit;
-    font-weight: 600;
+    font-weight: 400;
     border: solid 1px var(--color-secondary);
     position: relative;
     display: flex;
@@ -711,4 +728,54 @@ header{
         }
     }
 }
+
+.send-btn {
+    color: inherit;
+    font-weight: 600;
+    border: solid 1px var(--color-secondary);
+    position: relative;
+    font-size: 1.2rem;
+    background-color: var(--color-primary);
+    padding: 1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: var(--transition-setting);
+
+    &:hover {
+        background-color: var(--color-secondary);
+    }
+}
+
+#status{
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    color: var(--color-black);
+}
+#status.success{
+    background-color: lightgreen;
+    animation: statusAnime 4s easy forwards;
+}
+#status.error{
+    background-color: tomato;
+    animation: statusAnime 1s easy forwards;
+}
+@keyframes statusAnime{
+    0%{
+        opacity: 1;
+        pointer-events: all;
+    }
+    90%{
+        opacity: 1;
+        pointer-events: all;
+    }
+    100%{
+        opacity: 0;
+        pointer-events: none;
+    }
+}
 /* ------------------------------------- independent component end ---------------------- */
+@import './media';
